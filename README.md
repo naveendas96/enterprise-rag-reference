@@ -2,6 +2,10 @@
 
 A reference implementation of **retrieval-augmented generation (RAG) the way an enterprise has to run it**: answers are grounded and cited, document-level access control is enforced, the system refuses when it doesn't know, and an eval gates every change.
 
+[![Demo: real CLI run](docs/demo/demo.jpg)](docs/demo/demo.mp4)
+
+*Demo recorded from the real CLI output ([MP4](docs/demo/demo.mp4)). More projects: [thenavasoft.com/projects](https://thenavasoft.com/projects.html)*
+
 ## Problem
 Most RAG demos answer anything, cite nothing and ignore who is asking. In an enterprise, the questions that matter are *"Can an employee see the Q3 financials through the chatbot?"* and *"What happens when the documents don't contain the answer?"* This repo answers both with code and measures the result.
 
