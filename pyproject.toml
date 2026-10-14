@@ -1,0 +1,24 @@
+[project]
+name = "enterprise-rag-reference"
+version = "0.1.0"
+description = "Enterprise RAG reference architecture: hybrid retrieval, RBAC, citations, grounded refusal, evals."
+requires-python = ">=3.11"
+license = {text = "MIT"}
+dependencies = ["numpy>=1.26", "rank-bm25>=0.2.2", "pyyaml>=6", "fastapi>=0.110", "httpx>=0.27", "pydantic>=2"]
+
+[project.optional-dependencies]
+ml = ["sentence-transformers>=2.7", "chromadb>=0.5"]
+dev = ["pytest>=8", "uvicorn>=0.29"]
+
+[project.scripts]
+erag = "erag.cli:main"
+
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+pythonpath = ["src"]

@@ -1,0 +1,17 @@
+- {q: "How many days of paid annual leave do employees get?", doc: hr-leave-policy, contains: "24 days"}
+- {q: "How many unused leave days can be carried over?", doc: hr-leave-policy, contains: "5 unused"}
+- {q: "When is a medical certificate required for sick leave?", doc: hr-leave-policy, contains: "3 consecutive"}
+- {q: "How long is parental leave for primary caregivers?", doc: hr-leave-policy, contains: "26 weeks"}
+- {q: "What is the minimum password length?", doc: it-security-policy, contains: "14 characters"}
+- {q: "How quickly must security incidents be reported?", doc: it-security-policy, contains: "1 hour"}
+- {q: "Can restricted data be pasted into external AI tools?", doc: it-security-policy, contains: "never"}
+- {q: "What is the hotel reimbursement limit per night?", doc: finance-expense-policy, contains: "7000"}
+- {q: "Within how many days must expense claims be submitted?", doc: finance-expense-policy, contains: "30 days"}
+- {q: "How long is raw bronze data retained?", doc: eng-data-platform, contains: "400 days", role: engineering}
+- {q: "What must gold tables have?", doc: eng-data-platform, contains: "data contract", role: engineering}
+- {q: "What is the salary range for band L6?", doc: hr-compensation-bands, contains: "60 to 85", role: hr}
+- {q: "What was Q3 revenue?", doc: finance-q3-results, contains: "412", role: finance}
+- {q: "What was Q3 revenue?", role: employee, expect_refusal: true}
+- {q: "What is the salary range for band L6?", role: employee, expect_refusal: true}
+- {q: "What is the office wifi password?", role: employee, expect_refusal: true}
+- {q: "Who won the cricket world cup?", role: admin, expect_refusal: true}
