@@ -47,3 +47,11 @@ def test_api():
     from erag.api import app
     r = TestClient(app).post("/ask", json={"question": "How many characters must passwords have?"})
     assert r.status_code == 200 and "14" in r.json()["answer"]
+
+
+def test_admin_sees_all_roles_and_api_honours_role_header():
+    assert "412" in rag.ask("What was Q3 revenue?", role="admin").text
+    from fastapi.testclient import TestClient
+    from erag.api import app
+    r = TestClient(app).post("/ask", json={"question": "What was Q3 revenue?"}, headers={"x-user-role": "employee"})
+    assert r.json() == {"answer": REFUSAL, "grounded": False, "citations": []}

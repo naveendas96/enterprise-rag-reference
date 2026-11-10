@@ -55,16 +55,22 @@ Full-time employees receive 24 days of paid annual leave per calendar year. [1]
   [1] hr-leave-policy > Leave Policy
 ```
 
-## Quickstart
+## Run it in 60 seconds
 ```bash
-python3.11 -m venv .venv && . .venv/bin/activate
-make install && make test && make eval
-erag ask "What was Q3 revenue?" --role finance     # answered
-erag ask "What was Q3 revenue?" --role employee    # refused (RBAC)
-make serve   # curl -X POST localhost:8000/ask -H 'x-user-role: hr' -d '{"question":"..."}'
-# Real models (optional):
-make install-ml && EMBEDDER=st VECTOR_STORE=chroma LLM_PROVIDER=ollama LLM_MODEL=llama3.2:1b erag ask "..."
+python3 -m venv .venv && . .venv/bin/activate
+pip install -e ".[dev]"
+erag ask "What was Q3 revenue?" --role finance     # answered, cites the Q3 brief
+erag ask "What was Q3 revenue?" --role employee    # refused (role has no access)
 ```
+The two asks return in well under a second on the default mock LLM. No API key or model download is required.
+
+Then, if you want the tests, the eval gate, or the API:
+```bash
+make test && make eval
+make serve   # curl -X POST localhost:8000/ask -H 'x-user-role: hr' -d '{"question":"..."}'
+```
+Real models (optional): `make install-ml && EMBEDDER=st VECTOR_STORE=chroma LLM_PROVIDER=ollama LLM_MODEL=llama3.2:1b erag ask "..."`
+
 Docker: `docker compose up` (add `--profile ollama` for a local LLM).
 
 ## Cost note
